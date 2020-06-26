@@ -1,6 +1,8 @@
 
 import React , { useState } from "react";
+import { DragDropContainer, DropTarget } from 'react-drag-drop-container';
 import classnames from 'classnames';
+import IngredientsMenu from '../../components/IngredientsMenu/IngredientsMenu';
 // reactstrap components
 
 
@@ -29,8 +31,8 @@ class NewPizza extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            date: new Date(),
-            
+            activeTab: '1',
+
         };
     }
 
@@ -51,26 +53,50 @@ class NewPizza extends React.Component {
                                     <Nav tabs>
                                         <NavItem>
                                             <NavLink
-                                                className={classnames({ active: activeTab === '1' })}
-                                                onClick={() => { toggle('1'); }}
+                                                className={classnames({ active: this.state.activeTab === '1' })}
+                                                onClick={() =>
+                                                {
+                                                    if(this.state.activeTab !== '1')
+                                                    {
+                                                        this.setState({ activeTab: '1' })
+                                                    }
+
+                                                    }}
                                             >
-                                                Tab1
+                                                Ingredientes
                                             </NavLink>
                                         </NavItem>
                                         <NavItem>
                                             <NavLink
-                                                className={classnames({ active: activeTab === '2' })}
-                                                onClick={() => { toggle('2'); }}
+                                                className={classnames({ active: this.state.activeTab === '2' })}
+                                                onClick={() => {
+
+                                                    if(this.state.activeTab !== '2')
+                                                    {
+                                                        this.setState({ activeTab: '2' })
+                                                    }
+
+                                                }}
                                             >
-                                                More Tabs
+                                                Informacion del Pedido
                                             </NavLink>
                                         </NavItem>
                                     </Nav>
-                                    <TabContent activeTab={activeTab}>
+                                    <TabContent activeTab={this.state.activeTab}>
                                         <TabPane tabId="1">
                                             <Row>
                                                 <Col sm="12">
-                                                    <h4>Tab 1 Contents</h4>
+
+                                                    <IngredientsMenu />
+                                                    <DragDropContainer targetKey="foo" >
+                                                        <div>Drag Me!</div>
+                                                    </DragDropContainer>
+
+                                                    <DropTarget targetKey="foo" >
+                                                        <p>I'm a valid drop target for the object above since we both have the same targetKey!</p>
+                                                    </DropTarget>
+
+
                                                 </Col>
                                             </Row>
                                         </TabPane>
