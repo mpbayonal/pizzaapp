@@ -38,6 +38,7 @@ class Sidebar extends React.Component {
                 data-color={this.props.bgColor}
                 data-active-color={this.props.activeColor}
             >
+                <p>Pizza App</p>
 
                 <div className="sidebar-wrapper" ref={this.sidebar}>
                     <Nav>
@@ -55,7 +56,7 @@ class Sidebar extends React.Component {
                                         className="nav-link"
                                         activeClassName="active"
                                     >
-                                        <i className={prop.icon} />
+
                                         <p>{prop.name}</p>
                                     </NavLink>
                                 </li>
