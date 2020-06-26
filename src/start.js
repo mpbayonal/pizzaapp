@@ -2,14 +2,14 @@
 import React from "react";
 import PerfectScrollbar from "perfect-scrollbar";
 import { Route, Switch } from "react-router-dom";
-
+import Sidebar from "./components/sidebar/Sidebar";
 
 
 import pizzaRoutes from "./routes";
 
 var ps;
 
-class Dashboard extends React.Component {
+class Home extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -36,23 +36,23 @@ class Dashboard extends React.Component {
             document.scrollingElement.scrollTop = 0;
         }
     }
-    handleActiveClick = (color) => {
-        this.setState({ activeColor: color });
-    };
-    handleBgClick = (color) => {
-        this.setState({ backgroundColor: color });
-    };
+
     render() {
         return (
             <div className="wrapper">
-
+                <Sidebar
+                    {...this.props}
+                    routes={pizzaRoutes}
+                    bgColor={this.state.backgroundColor}
+                    activeColor={this.state.activeColor}
+                />
                 <div className="main-panel" ref={this.mainPanel}>
 
                     <Switch>
                         {pizzaRoutes.map((prop, key) => {
                             return (
                                 <Route
-                                    path={prop.layout + prop.path}
+                                    path={prop.startPath + prop.endPath}
                                     component={prop.component}
                                     key={key}
                                 />
@@ -67,4 +67,4 @@ class Dashboard extends React.Component {
     }
 }
 
-export default Dashboard;
+export default Home;
