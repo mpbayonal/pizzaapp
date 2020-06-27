@@ -221,7 +221,7 @@ export default function(state = INITIAL_STATE, action) {
             return {...state,  deletedIngredient:{ingredient:null, error:null, loading: false}}
 
         case UPDATE_INGREDIENT_FIELDS:
-            
+
             const index = state.ingredientsList.ingredients.map((product, i) => {
                     if (product.name === action.payload.id) {
                         return product
