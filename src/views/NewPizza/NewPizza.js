@@ -36,6 +36,27 @@ class NewPizza extends React.Component {
         };
     }
 
+    getInitialState() {
+        return {
+            concerts: []
+        }
+    }
+
+    componentDidMount() {
+        var th = this;
+        this.serverRequest =
+            axios.get(this.props.source)
+                .then(function(result) {
+                    th.setState({
+                        concerts: result.data.concerts
+                    });
+                })
+    }
+
+    componentWillUnmount() {
+        this.serverRequest.abort();
+    }
+
     render() {
         return (
             <>
