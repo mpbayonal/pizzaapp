@@ -1,4 +1,6 @@
 Pizza App:
+El enfoque principal de la aplicacion fue crear un interfaz amigable y creativa para el ususario. Para almacenar las ventas se utilzo redux con el fin de manejar el estado de la aplicacion.
+Tambien se creo una barra lateral para facilitar la navegacion entre las vistas. 
 Se usaron las siguiente librerias:
 
 "bootstrap": "^4.5.0" : Se utilizo esta libreria para la interfaz,
