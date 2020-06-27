@@ -3,6 +3,7 @@ El enfoque principal de la aplicacion fue crear un interfaz amigable y creativa 
 Tambien se creo una barra lateral para facilitar la navegacion entre las vistas. Para correr la aplicacion primero solo se deben ejecutar los siguientes comandos:
 
 npm install
+
 npm start
 
 Se usaron las siguiente librerias:
