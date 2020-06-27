@@ -1,10 +1,10 @@
-import NewPizza from "./views/NewPizza/NewPizza"
+import NewPizzaPage from "./views/NewPizza/NewPizzaPage"
 var pizzaRoutes =
     [
             {
                     endPath: "/newPizza",
                     name: "Nueva Pizza",
-                    component: NewPizza,
+                    component: NewPizzaPage,
                     startPath: "/home",
             }
         ];

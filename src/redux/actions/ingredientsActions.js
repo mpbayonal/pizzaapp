@@ -144,7 +144,7 @@ export function resetDeletedIngredient() {
 }
 ;
 
-export function fetchIngredient(id) {
+export function changeStatusIngredient(id) {
   const request = axios.get(`${ROOT_URL}/reservas/${id}`);
 
   return {
@@ -154,14 +154,14 @@ export function fetchIngredient(id) {
 }
 
 
-export function fetchIngredientSuccess(activeIngredient) {
+export function changeStatusIngredientSuccess(activeIngredient) {
   return {
     type: FETCH_INGREDIENT_SUCCESS,
     payload: activeIngredient
   };
 }
 
-export function fetchIngredientFailure(error) {
+export function changeStatusIngredientFailure(error) {
   return {
     type: FETCH_INGREDIENT_FAILURE,
     payload: error

@@ -8,7 +8,7 @@ import {
 
 
 const INITIAL_STATE = { pizzasList: {pizzas: [], error:null, loading: false},
-  newPizza:{pizza:null, error: null, loading: false},
+  newPizza:{pizza:{nombre: null, ingredientes: [], costo: 10000, cliente:null, telefono:null, fecha: null}, error: null, loading: false},
   activePizza:{pizza:null, error:null, loading: false},
   deletedPizza: {pizza: null, error:null, loading: false},
 };

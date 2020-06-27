@@ -1,63 +1,51 @@
 
-import React , { useState } from "react";
-import { DragDropContainer, DropTarget } from 'react-drag-drop-container';
+import React , { useState , useEffect } from "react";
+
 import classnames from 'classnames';
 import IngredientsMenu from '../../components/IngredientsMenu/IngredientsMenu';
 // reactstrap components
 
 
 import {
-    TabContent,
+
     CardText,
     TabPane,
     Nav,
     NavItem,
     NavLink,
-    Button,
     Card,
-    CardHeader,
+    TabContent,
     CardBody,
-    CardFooter,
+    Button,
     CardTitle,
-    FormGroup,
-    Form,
-    Input,
+
     Row,
     Col,
 } from "reactstrap";
 
-class NewPizza extends React.Component {
+export default function NewPizza(props) {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            activeTab: '1',
 
-        };
+    const [activeTab, setActiveTab] = useState('1');
+
+    const change = tab => {
+        if(activeTab !== tab) setActiveTab(tab);
     }
 
-    getInitialState() {
-        return {
-            concerts: []
-        }
-    }
+    let ingredientsList = []
 
-    componentDidMount() {
-        var th = this;
-        this.serverRequest =
-            axios.get(this.props.source)
-                .then(function(result) {
-                    th.setState({
-                        concerts: result.data.concerts
-                    });
-                })
-    }
+    useEffect(() => {
 
-    componentWillUnmount() {
-        this.serverRequest.abort();
-    }
 
-    render() {
+
+
+    }, []);
+
+    const { ingredients, loading, error } = props.ingredientsList;
+
+
+
+
         return (
             <>
                 <div className="content">
@@ -72,13 +60,10 @@ class NewPizza extends React.Component {
                                     <Nav pills={true} fill={true}>
                                         <NavItem>
                                             <NavLink
-                                                className={classnames({ active: this.state.activeTab === '1' })}
+                                                className={classnames({ active: activeTab === '1' })}
                                                 onClick={() =>
                                                 {
-                                                    if(this.state.activeTab !== '1')
-                                                    {
-                                                        this.setState({ activeTab: '1' })
-                                                    }
+                                                    change('1');
 
                                                     }}
                                             >
@@ -87,13 +72,10 @@ class NewPizza extends React.Component {
                                         </NavItem>
                                         <NavItem>
                                             <NavLink
-                                                className={classnames({ active: this.state.activeTab === '2' })}
+                                                className={classnames({ active: activeTab === '2' })}
                                                 onClick={() => {
 
-                                                    if(this.state.activeTab !== '2')
-                                                    {
-                                                        this.setState({ activeTab: '2' })
-                                                    }
+                                                    change('2');
 
                                                 }}
                                             >
@@ -101,7 +83,7 @@ class NewPizza extends React.Component {
                                             </NavLink>
                                         </NavItem>
                                     </Nav>
-                                    <TabContent activeTab={this.state.activeTab}>
+                                    <TabContent activeTab={activeTab}>
                                         <TabPane tabId="1">
                                             <Row>
                                                 <Col sm="12">
@@ -141,7 +123,7 @@ class NewPizza extends React.Component {
                 </div>
             </>
         );
-    }
+
 }
 
-export default NewPizza;
+
