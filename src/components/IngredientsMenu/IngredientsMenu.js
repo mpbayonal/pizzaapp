@@ -29,7 +29,7 @@ export default class IngredientsMenu extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            activeTab2: '1',
+            activeTab2: '1', listIngredients: this.props.lista
 
         };
     }

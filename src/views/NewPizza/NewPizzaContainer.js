@@ -6,10 +6,11 @@ import NewPizza from './NewPizza';
 
 const mapStateToProps = (state) => {
 
-    console.log(state.mainReducer)
+    const { todos } = state
+    console.log(state.mainReducer.Ingredients.ingredientsList.ingredients)
     return {
 
-        ingredientsList: state.mainReducer.Ingredients.ingredientsList
+        ingredientsList: state.mainReducer.Ingredients.ingredientsList.ingredients
 
 
     }

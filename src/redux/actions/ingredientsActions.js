@@ -13,9 +13,9 @@ export const CREATE_INGREDIENT_FAILURE = 'CREATE_INGREDIENT_FAILURE';
 export const RESET_NEW_INGREDIENT = 'RESET_NEW_INGREDIENT';
 
 //Validate reserva fields like Title, Categries on the server
-export const VALIDATE_INGREDIENT_FIELDS = 'VALIDATE_INGREDIENT_FIELDS';
-export const VALIDATE_INGREDIENT_FIELDS_SUCCESS = 'VALIDATE_INGREDIENT_FIELDS_SUCCESS';
-export const VALIDATE_INGREDIENT_FIELDS_FAILURE = 'VALIDATE_INGREDIENT_FIELDS_FAILURE';
+export const UPDATE_INGREDIENT_FIELDS = 'VALIDATE_INGREDIENT_FIELDS';
+export const UPDATE_INGREDIENT_FIELDS_SUCCESS = 'VALIDATE_INGREDIENT_FIELDS_SUCCESS';
+export const UPDATE_INGREDIENT_FIELDS_FAILURE = 'VALIDATE_INGREDIENT_FIELDS_FAILURE';
 export const RESET_INGREDIENT_FIELDS = 'RESET_INGREDIENT_FIELDS';
 
 //Fetch reserva
@@ -69,28 +69,6 @@ export function fetchIngredientsFailure(error) {
   };
 }
 
-export function validateIngredientFields(props) {
-  //note: we cant have /reservas/validateFields because it'll match /reservas/:id path!
-  const request = axios.reserva(`${ROOT_URL}/reservas/validate/fields`, props);
-
-  return {
-    type: VALIDATE_INGREDIENT_FIELDS,
-    payload: request
-  };
-}
-
-export function validateIngredientFieldsSuccess() {
-  return {
-    type: VALIDATE_INGREDIENT_FIELDS_SUCCESS
-  };
-}
-
-export function validateIngredientFieldsFailure(error) {
-  return {
-    type: VALIDATE_INGREDIENT_FIELDS_FAILURE,
-    payload: error
-  };
-}
 
 export function resetIngredientFields() {
   return {
@@ -148,7 +126,7 @@ export function changeStatusIngredient(id) {
   const request = axios.get(`${ROOT_URL}/reservas/${id}`);
 
   return {
-    type: FETCH_INGREDIENT,
+    type: UPDATE_INGREDIENT_FIELDS,
     payload: request
   };
 }
@@ -156,14 +134,14 @@ export function changeStatusIngredient(id) {
 
 export function changeStatusIngredientSuccess(activeIngredient) {
   return {
-    type: FETCH_INGREDIENT_SUCCESS,
+    type: UPDATE_INGREDIENT_FIELDS_SUCCESS,
     payload: activeIngredient
   };
 }
 
 export function changeStatusIngredientFailure(error) {
   return {
-    type: FETCH_INGREDIENT_FAILURE,
+    type: UPDATE_INGREDIENT_FIELDS_FAILURE,
     payload: error
   };
 }
