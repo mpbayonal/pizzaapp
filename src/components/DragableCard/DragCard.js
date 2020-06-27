@@ -1,6 +1,7 @@
 import React from 'react';
 import { DragDropContainer } from 'react-drag-drop-container';
-import {Button, Card, CardText, CardTitle} from "reactstrap";
+import {Button, Card, CardText, CardTitle,Row,
+    Col} from "reactstrap";
 import PropTypes from "prop-types";
 
 
@@ -29,14 +30,31 @@ function DragCard(props) {
                 >
 
                     <Card body>
-                        {props.nombre}
 
+                        <div className="image">
+                            <img
+                                alt="..."
+                                src={logo}
+                                width={224}
+                                height={224}
+                            />
+                        </div>
                         {console.log(imageRoute)}
-                        <CardTitle>{"$" + props.price}</CardTitle>
-                        <img src={logo}  alt="" />
+                        <CardTitle tag="p">{props.nombre}</CardTitle>
+                        <p className="card-category">{"$" + props.price}</p>
 
 
-                        <Button>Añadir</Button>
+
+                        <Row>
+                            <Col md="12" xs="12">
+                                <Button
+                                    className="btn-round"
+                                    color="danger"
+                                    type="submit"
+                                > Agregar </Button>
+                            </Col>
+                        </Row>
+
                     </Card>
 
                 </DragDropContainer>

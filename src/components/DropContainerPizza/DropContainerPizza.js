@@ -1,7 +1,21 @@
 import React from 'react';
 
 import {  DropTarget } from 'react-drag-drop-container';
-import {Button, Card, CardBody, CardHeader, CardText, CardTitle, Col, Row, TabPane, CardImg, CardImgOverlay} from "reactstrap";
+import {
+    Button,
+    Card,
+    CardBody,
+    CardHeader,
+    CardText,
+    CardTitle,
+    Col,
+    Row,
+    TabPane,
+    CardGroup,
+    CardImg,
+    CardImgOverlay,
+    CardColumns, Form
+} from "reactstrap";
 
 
 export default class ContainerPizza extends React.Component {
@@ -55,24 +69,73 @@ export default class ContainerPizza extends React.Component {
                         <div className="box">
                             <Row>
                                 <Col sm="12">
-                                    <Card className="card-user">
+                                    <Card  >
                                         <CardImg width="100%" src={require("files/img/pizzaHome2.png")} alt="Card image cap" />
                                         <CardImgOverlay>
 
                                             <div>
+                                                <Row>
+                                                    <Col md="6" xs="0">
+                                                    </Col>
+                                                    <Col md="6" xs="12">
+                                                        <Card body>
+                                                            <Row>
+                                                                <Col className="ml-auto mr-auto text-center" md="6">
+                                                                    <CardTitle tag="h5">Mi Pizza</CardTitle>
+
+                                                                </Col>
+                                                            </Row>
+                                                            <CardGroup>
                                             {this.state.items.map((item, index) => {
                                 return (
 
 
-                                    <p>{item.label} </p>
 
 
+                                    <div>
 
+
+                                        <Row>
+                                            <Col md="12" xs="12">
+                                                <Row>
+                                                    <Col md="11" xs="11">
+                                    <p>{item.label}<Button close />  </p>
+                                                    </Col>
+                                                    <Col md="1" xs="1">
+
+                                                    </Col>
+                                                </Row>
+
+                                            </Col>
+                                        </Row>
+                                    </div>
 
 
 
                                 )
-                            })}
+                            })}</CardGroup>
+                                                            <Row>
+                                                                <Col className="ml-auto mr-auto text-center" md="6">
+                                                                    <CardTitle tag="h6">Total: $40994</CardTitle>
+
+                                                                </Col>
+                                                            </Row>
+                                                            <Row>
+                                                                <div className="update ml-auto mr-auto">
+                                                                    <Button
+                                                                        className="btn-round"
+                                                                        color="danger"
+                                                                        type="submit"
+                                                                    >
+                                                                        Siguiente
+                                                                    </Button>
+                                                                </div>
+                                                            </Row>
+                                                        </Card>
+                                            </Col>
+                                        </Row>
+
+
                                             </div>
                                         </CardImgOverlay>
                                     </Card>

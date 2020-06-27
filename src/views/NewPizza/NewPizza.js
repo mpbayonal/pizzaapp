@@ -100,8 +100,7 @@ export default function NewPizza(props) {
                                                 <Col sm="12">
 
 
-
-
+                                                    <CardTitle tag="h5">Arma tu pizza:</CardTitle>
 
                                                     <div >
                                                         <Row>
@@ -112,11 +111,17 @@ export default function NewPizza(props) {
                                                             </Col>
                                                         </Row>
                                                         <Row>
-                                                            <Col md="2" xs="2">
+                                                            <Col md="12" xs="12">
+                                                                <CardTitle tag="h5">Ingredientes:</CardTitle>
+                                                            </Col>
+                                                        </Row>
+                                                        <Row>
+
+                                                            <Col md="1" xs="1">
 
 
 
-                                                                <Nav pills={true} fill={true} vertical>
+                                                                <Nav pills={true} fill={true} vertical >
                                                                     <NavItem>
                                                                         <NavLink
                                                                             className={classnames({ active: activeTab2 === '1' })}
@@ -169,6 +174,8 @@ export default function NewPizza(props) {
 
                                                                 </Nav>
 
+                                                            </Col>
+                                                            <Col md="1" xs="1">
                                                             </Col>
                                                             <Col md="10" xs="10">
                                                                 <TabContent activeTab={activeTab2}>
@@ -332,7 +339,7 @@ export default function NewPizza(props) {
                                                                     <FormGroup>
                                                                         <label>Fecha</label>
                                                                         <Input
-                                                                            
+
                                                                             placeholder="fecha"
                                                                             type="date"
                                                                         />
