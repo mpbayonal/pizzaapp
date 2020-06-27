@@ -21,6 +21,7 @@ import React from "react";
 import PerfectScrollbar from "perfect-scrollbar";
 import { Route, Switch } from "react-router-dom";
 import Sidebar from "./components/sidebar/Sidebar";
+import Header from "./components/Navbar/Navbar";
 
 
 import pizzaRoutes from "./routes";
@@ -65,7 +66,7 @@ class Home extends React.Component {
                     activeColor={this.state.activeColor}
                 />
                 <div className="main-panel" ref={this.mainPanel}>
-
+                    <Header {...this.props} />
                     <Switch>
                         {pizzaRoutes.map((prop, key) => {
                             return (

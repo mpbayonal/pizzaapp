@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {  DropTarget } from 'react-drag-drop-container';
-import {Button, Card, CardBody, CardHeader, CardText, CardTitle, Col, Row, TabPane} from "reactstrap";
+import {Button, Card, CardBody, CardHeader, CardText, CardTitle, Col, Row, TabPane, CardImg, CardImgOverlay} from "reactstrap";
 
 
 export default class ContainerPizza extends React.Component {
@@ -56,10 +56,9 @@ export default class ContainerPizza extends React.Component {
                             <Row>
                                 <Col sm="12">
                                     <Card className="card-user">
-                                        <CardHeader>
-                                            <CardTitle tag="h5">Arma tu pizza!!</CardTitle>
-                                        </CardHeader>
-                                        <CardBody>
+                                        <CardImg width="100%" src={require("files/img/pizzaHome2.png")} alt="Card image cap" />
+                                        <CardImgOverlay>
+
                                             <div>
                                             {this.state.items.map((item, index) => {
                                 return (
@@ -75,7 +74,7 @@ export default class ContainerPizza extends React.Component {
                                 )
                             })}
                                             </div>
-                                        </CardBody>
+                                        </CardImgOverlay>
                                     </Card>
                                 </Col>
                             </Row>

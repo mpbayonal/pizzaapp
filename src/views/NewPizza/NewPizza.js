@@ -44,13 +44,11 @@ class NewPizza extends React.Component {
 
                         <Col md="12">
                             <Card className="card-user">
-                                <CardHeader>
-                                    <CardTitle tag="h5">Arma tu pizza!!</CardTitle>
-                                </CardHeader>
+
                                 <CardBody>
 
 
-                                    <Nav tabs>
+                                    <Nav pills={true} fill={true}>
                                         <NavItem>
                                             <NavLink
                                                 className={classnames({ active: this.state.activeTab === '1' })}
@@ -88,13 +86,7 @@ class NewPizza extends React.Component {
                                                 <Col sm="12">
 
                                                     <IngredientsMenu />
-                                                    <DragDropContainer targetKey="foo" >
-                                                        <div>Drag Me!</div>
-                                                    </DragDropContainer>
 
-                                                    <DropTarget targetKey="foo" >
-                                                        <p>I'm a valid drop target for the object above since we both have the same targetKey!</p>
-                                                    </DropTarget>
 
 
                                                 </Col>
