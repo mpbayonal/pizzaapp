@@ -5,7 +5,7 @@ var pizzaRoutes =
                     endPath: "/newPizza",
                     name: "Nueva Pizza",
                     component: NewPizzaPage,
-                    startPath: "/home",
+                    startPath: "/admin",
             }
         ];
 export default pizzaRoutes;

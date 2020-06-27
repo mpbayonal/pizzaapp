@@ -16,6 +16,9 @@ import {
     NavLink,
     CardColumns,
     Card,
+    FormGroup,
+    Form,
+    Input,
     TabContent,
     CardBody,
     Button,
@@ -285,20 +288,80 @@ export default function NewPizza(props) {
                                         </TabPane>
                                         <TabPane tabId="2">
                                             <Row>
-                                                <Col sm="6">
+                                                <Col sm="12">
                                                     <Card body>
-                                                        <CardTitle>Special Title Treatment</CardTitle>
-                                                        <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
-                                                        <Button>Go somewhere</Button>
+                                                        <CardTitle tag="h5">Añadir la información del usuario:</CardTitle>
+                                                        <Form>
+
+                                                            <Row>
+                                                                <Col className="pr-1" md="6">
+                                                                    <FormGroup>
+                                                                        <label>Nombre</label>
+                                                                        <Input
+                                                                            defaultValue="nombre"
+                                                                            placeholder="nombre"
+                                                                            type="text"
+                                                                        />
+                                                                    </FormGroup>
+                                                                </Col>
+                                                                <Col className="pl-1" md="6">
+                                                                    <FormGroup>
+                                                                        <label>Apellido</label>
+                                                                        <Input
+                                                                            defaultValue="apellido"
+                                                                            placeholder="apellido"
+                                                                            type="text"
+                                                                        />
+                                                                    </FormGroup>
+                                                                </Col>
+                                                            </Row>
+                                                            <Row>
+                                                                <Col md="12">
+                                                                    <FormGroup>
+                                                                        <label>Dirección</label>
+                                                                        <Input
+                                                                            defaultValue="Cra 78 # 89-20"
+                                                                            placeholder="direccion"
+                                                                            type="text"
+                                                                        />
+                                                                    </FormGroup>
+                                                                </Col>
+                                                            </Row>
+                                                            <Row>
+                                                                <Col className="pr-1" md="6">
+                                                                    <FormGroup>
+                                                                        <label>Fecha</label>
+                                                                        <Input
+                                                                            
+                                                                            placeholder="fecha"
+                                                                            type="date"
+                                                                        />
+                                                                    </FormGroup>
+                                                                </Col>
+
+                                                                <Col className="pl-1" md="6">
+                                                                    <FormGroup>
+                                                                        <label>Telefono</label>
+                                                                        <Input placeholder="telefono" type="number" />
+                                                                    </FormGroup>
+                                                                </Col>
+                                                            </Row>
+
+                                                            <Row>
+                                                                <div className="update ml-auto mr-auto">
+                                                                    <Button
+                                                                        className="btn-round"
+                                                                        color="danger"
+                                                                        type="submit"
+                                                                    >
+                                                                        Crear Pizza
+                                                                    </Button>
+                                                                </div>
+                                                            </Row>
+                                                        </Form>
                                                     </Card>
                                                 </Col>
-                                                <Col sm="6">
-                                                    <Card body>
-                                                        <CardTitle>Special Title Treatment</CardTitle>
-                                                        <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
-                                                        <Button>Go somewhere</Button>
-                                                    </Card>
-                                                </Col>
+
                                             </Row>
                                         </TabPane>
                                     </TabContent>
