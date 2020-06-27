@@ -45,12 +45,7 @@ export default function NewPizza(props) {
 
 
 
-    useEffect(() => {
 
-
-
-
-    }, []);
 
     const { ingredients } = props.ingredientsList;
 
@@ -190,6 +185,7 @@ export default function NewPizza(props) {
                                                                                                              nombre={item.name}
                                                                                                              image = {item.image}
                                                                                                              price = {item.price}
+                                                                                                             changeState={props.changeStatusIngredient}
                                                                                             />
                                                                                         }
                                                                                     })

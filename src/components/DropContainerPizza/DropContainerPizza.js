@@ -78,7 +78,7 @@ export default class ContainerPizza extends React.Component {
                                                     <Col md="6" xs="0">
                                                     </Col>
                                                     <Col md="6" xs="12">
-                                                        <Card body>
+                                                        <Card className="card-plain">
                                                             <Row>
                                                                 <Col className="ml-auto mr-auto text-center" md="6">
                                                                     <CardTitle tag="h5">Mi Pizza</CardTitle>

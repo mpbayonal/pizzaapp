@@ -1,16 +1,23 @@
 import React from "react";
 import { useState, useEffect } from "react";
-// @material-ui/core components
-import { makeStyles } from "@material-ui/core/styles";
-// core components
-import GridItem from "components/Grid/GridItem.js";
-import GridContainer from "components/Grid/GridContainer.js";
+
+
 import PizzasTableEditable from "./PizzasTableEditable";
-import Card from "components/Card/Card.js";
-import CardHeader from "components/Card/CardHeader.js";
-import CardBody from "components/Card/CardBody.js";
 
 
+import {
+  Button,
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  CardTitle,
+  FormGroup,
+  Form,
+  Input,
+  Row,
+  Col,
+} from "reactstrap";
 
 export default function PizzaLista(props) {
 
@@ -29,46 +36,48 @@ export default function PizzaLista(props) {
   if(loading)
   {
     return (
-        <GridContainer>
-          <GridItem xs={12} sm={12} md={12}>
-            <Card>
-              <CardHeader color="danger">
-                <h4 className={classes.cardTitleWhite}>Reservas</h4>
-                <p className={classes.cardCategoryWhite}>
-                  Ver todas las reservas por habitacion.
-                </p>
+        <>
+          <div className="content">
+            <Row>
+              <Col md="12">
+            <Card className="card-user">
+              <CardHeader>
+                <CardTitle tag="h3">Lista de Pizzas</CardTitle>
               </CardHeader>
               <CardBody>
 
-                <h4 className={classes.cardTitle}>Se estan cargando tus reservas...</h4>
+                <CardTitle tag="h5">Hubo un error cargando la lista de pizzas</CardTitle>
 
               </CardBody>
             </Card>
-          </GridItem>
-        </GridContainer>
+              </Col>
+            </Row>
+          </div>
+        </>
     );
 
 
   }
   else if(error != null){
     return (
-        <GridContainer>
-          <GridItem xs={12} sm={12} md={12}>
-            <Card>
-              <CardHeader color="danger">
-                <h4 className={classes.cardTitleWhite}>Reservas</h4>
-                <p className={classes.cardCategoryWhite}>
-                  Ver todas las reservas por habitacion.
-                </p>
-              </CardHeader>
-              <CardBody>
+        <>
+          <div className="content">
+            <Row>
+              <Col md="12">
+                <Card className="card-user">
+                  <CardHeader>
+                    <CardTitle tag="h3">Lista de Pizzas</CardTitle>
+                  </CardHeader>
+                  <CardBody>
 
-                <h4 className={classes.cardTitle}>Hubo un error cargando tus reservas. Error: {error.message}</h4>
+                    <CardTitle tag="h5">Hubo un error cargando la lista de pizzas</CardTitle>
 
-              </CardBody>
-            </Card>
-          </GridItem>
-        </GridContainer>
+                  </CardBody>
+                </Card>
+              </Col>
+            </Row>
+          </div>
+        </>
     );
 
   }
@@ -76,7 +85,7 @@ export default function PizzaLista(props) {
 
 
     let d = 0
-    while(d < reservas.length)
+    while(d < 0)
     {
 
       let y = 0
@@ -103,36 +112,36 @@ export default function PizzaLista(props) {
 
 
     return (
-        <GridContainer>
-          <GridItem xs={12} sm={12} md={12}>
-            <Card>
-              <CardHeader color="danger">
-                <h4 className={classes.cardTitleWhite}>Reservas</h4>
-                <p className={classes.cardCategoryWhite}>
-                  Ver todas las reservas por habitacion.
-                </p>
-              </CardHeader>
-              <CardBody>
+        <>
+          <div className="content">
+            <Row>
+              <Col md="12">
+                <Card className="card-user">
+                  <CardHeader>
+                    <CardTitle tag="h3">Lista de Pizzas</CardTitle>
+                  </CardHeader>
+                  <CardBody>
 
-                <ReservasTableEditable
+                <PizzasTableEditable
                     tableHead={[
-                      {title: 'Id de la Reserva', field: 'id'},
-                      {title: 'Nombre del Cliente', field: 'nombre_Cliente'},
-                      {title: 'Id del Cliente', field: 'idCliente'},
-                      {title: 'Habitacion', field: 'habitacion'},
-                      {title: 'Tipo de Habitacion', field: 'habitacion_tipo'},
-                      {title: 'Fecha Inicial', field: 'fecha_inicial', type: 'date'},
-                      {title: 'Fecha Fin', field: 'fechaFin', type: 'date'},
+                      {title: 'Nombre de la Pizza', field: 'id'},
+                      {title: 'Cliente', field: 'nombre_Cliente'},
+
+                      {title: 'telefono', field: 'telefono'},
+                      {title: 'Precio', field: 'precio', type: 'number'},
+
+                      {title: 'Fecha', field: 'fecha', type: 'date'},
                     ]}
                     tableData={reservasLista}
-                    deleteReserva={props.deleteReservas}
-                    //actualizar = {props.fetchReservas()}
+
                 />
 
-              </CardBody>
-            </Card>
-          </GridItem>
-        </GridContainer>
+                  </CardBody>
+                </Card>
+              </Col>
+            </Row>
+          </div>
+        </>
     );
   }
 

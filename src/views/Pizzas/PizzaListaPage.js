@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PizzaLista from './PizzaListaContainer';
 
-class ReservasPage extends Component {
+class PizzasPage extends Component {
     render() {
         return (
 
@@ -13,4 +13,4 @@ class ReservasPage extends Component {
 }
 
 
-export default ReservasPage;
+export default PizzasPage;

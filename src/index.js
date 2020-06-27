@@ -21,14 +21,14 @@ import AdminLayout from "./Admin";
 
 
 const hist = createBrowserHistory();
-const sagaMiddleware = createSagaMiddleware();
+
 export function configureStore( ) {
     const store = createStore(
         combineReducers({
             mainReducer,
             routing: routerReducer
         }),
-        applyMiddleware(sagaMiddleware, logger, routerMiddleware(hist),thunk),
+        applyMiddleware( logger, routerMiddleware(hist),thunk),
     );
     return store;
 }
@@ -39,8 +39,8 @@ ReactDOM.render(
     <Provider store={store}>
     <Router history={hist}>
         <Switch>
-            <Route path="/admin" render={(props) => <AdminLayout {...props} />} />
-            <Redirect to="/admin/newPizza" />
+            <Route path="/" render={(props) => <AdminLayout {...props} />} />
+            <Redirect from="/" to="/newPizza" />
         </Switch>
     </Router>
     </Provider> ,

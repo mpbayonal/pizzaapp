@@ -1,11 +1,19 @@
 import NewPizzaPage from "./views/NewPizza/NewPizzaPage"
-var pizzaRoutes =
+import PizzasPage from "./views/Pizzas/PizzaListaPage"
+var Routes =
     [
             {
-                    endPath: "/newPizza",
+                    path: "newPizza",
                     name: "Nueva Pizza",
                     component: NewPizzaPage,
-                    startPath: "/admin",
-            }
+                    layout: "/",
+            },
+        {
+            path: "pizzas",
+            name: "Lista de Ventas",
+            component: PizzasPage,
+            layout: "/",
+        },
+
         ];
-export default pizzaRoutes;
+export default Routes;

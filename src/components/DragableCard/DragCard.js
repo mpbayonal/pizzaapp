@@ -25,7 +25,7 @@ function DragCard(props) {
                     onDragStart={()=>(console.log('start'))}
                     onDrag={()=>(console.log('dragging'))}
                     onDragEnd={()=>(console.log('end'))}
-                    onDrop={(e)=>(console.log(e))}
+                    onDrop={(e)=>(props.changeState(props.nombre))}
 
                 >
 
@@ -71,6 +71,6 @@ DragCard.propTypes = {
         nombre: PropTypes.string,
 
 
-    changeState:PropTypes.func
+        changeState:PropTypes.func
 };
 export default DragCard

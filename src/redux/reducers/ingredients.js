@@ -221,9 +221,29 @@ export default function(state = INITIAL_STATE, action) {
             return {...state,  deletedIngredient:{ingredient:null, error:null, loading: false}}
 
         case UPDATE_INGREDIENT_FIELDS:
+            
+            const index = state.ingredientsList.ingredients.map((product, i) => {
+                    if (product.name === action.payload.id) {
+                        return product
+                    } });
 
-            return {...state, newIngredient:{...state.newIngredient, error: null, loading: true}}
-        case UPDATE_INGREDIENT_FIELDS_SUCCESS:
+
+            console.log(state.ingredientsList.ingredients)
+            if(index.status === 0 ){
+
+                return { ...state, ingredients: [ ...state.ingredientsList.ingredients.filter(p => p !== index), { ...index, status: 1 } ] };
+
+            }
+
+                else {
+
+                return { ...state, ingredients: [ ...state.ingredientsList.ingredients.filter(p => p !== index), { ...index, status: 0 } ] };
+            }
+
+
+
+
+            case UPDATE_INGREDIENT_FIELDS_SUCCESS:
             return {...state, newIngredient:{...state.newIngredient, error: null, loading: false}}
         case UPDATE_INGREDIENT_FIELDS_FAILURE:
             let result = action.payload;

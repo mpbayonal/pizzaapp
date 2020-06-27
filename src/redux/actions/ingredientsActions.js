@@ -13,9 +13,9 @@ export const CREATE_INGREDIENT_FAILURE = 'CREATE_INGREDIENT_FAILURE';
 export const RESET_NEW_INGREDIENT = 'RESET_NEW_INGREDIENT';
 
 //Validate reserva fields like Title, Categries on the server
-export const UPDATE_INGREDIENT_FIELDS = 'VALIDATE_INGREDIENT_FIELDS';
-export const UPDATE_INGREDIENT_FIELDS_SUCCESS = 'VALIDATE_INGREDIENT_FIELDS_SUCCESS';
-export const UPDATE_INGREDIENT_FIELDS_FAILURE = 'VALIDATE_INGREDIENT_FIELDS_FAILURE';
+export const UPDATE_INGREDIENT_FIELDS = 'UPDATE_INGREDIENT_FIELDS';
+export const UPDATE_INGREDIENT_FIELDS_SUCCESS = 'UPDATE_INGREDIENT_FIELDS_SUCCESS';
+export const UPDATE_INGREDIENT_FIELDS_FAILURE = 'UPDATE_INGREDIENT_FIELDS_FAILURE';
 export const RESET_INGREDIENT_FIELDS = 'RESET_INGREDIENT_FIELDS';
 
 //Fetch reserva
@@ -123,11 +123,11 @@ export function resetDeletedIngredient() {
 ;
 
 export function changeStatusIngredient(id) {
-  const request = axios.get(`${ROOT_URL}/reservas/${id}`);
+
 
   return {
     type: UPDATE_INGREDIENT_FIELDS,
-    payload: request
+    payload: id
   };
 }
 
